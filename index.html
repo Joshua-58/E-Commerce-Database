@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+</head>
+
+<body>
+
+    <h2>User Registration</h2>
+    <form id="registerForm">
+        <label for="firstName">First Name:</label><br>
+        <input type="text" id="firstName" name="firstName" required><br>
+        <label for="lastName">Last Name:</label><br>
+        <input type="text" id="lastName" name="lastName" required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+        <label for="street">Street:</label><br>
+        <input type="text" id="street" name="street" required><br>
+        <label for="zipCode">Zip Code:</label><br>
+        <input type="text" id="zipCode" name="zipCode" required><br>
+        <label for="state">State:</label><br>
+        <input type="text" id="state" name="state" required><br><br>
+        <button type="submit">Register</button>
+    </form>
+
+    <div id="registerMessage"></div>
+
+    <hr>
+
+    <h2>User Login</h2>
+    <form id="loginForm">
+        <label for="loginUsername">Username:</label><br>
+        <input type="text" id="loginUsername" name="loginUsername" required><br>
+        <label for="loginPassword">Password:</label><br>
+        <input type="password" id="loginPassword" name="loginPassword" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <div id="loginMessage"></div>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            fetch("user_api.php?register", { // Update this URL with your PHP file name and endpoint
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("registerMessage").innerText = JSON.stringify(data);
+                })
+                .catch(error => console.error("Error:", error));
+        });
+
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            fetch("user_api.php?login", { // Update this URL with your PHP file name and endpoint
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("loginMessage").innerText = JSON.stringify(data);
+                })
+                .catch(error => console.error("Error:", error));
+        });
+    </script>
+
+</body>
+
+</html>
