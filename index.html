@@ -4,77 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Page</title>
+    <title>API Test Page</title>
 </head>
 
 <body>
+    <h1>API Test Page</h1>
 
-    <h2>User Registration</h2>
-    <form id="registerForm">
-        <label for="firstName">First Name:</label><br>
+    <!-- Registration Form -->
+    <h2>Register User</h2>
+    <form action="user_api.php?register" method="post">
+        <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName" required><br>
-        <label for="lastName">Last Name:</label><br>
+
+        <label for="lastName">Last Name:</label>
         <input type="text" id="lastName" name="lastName" required><br>
-        <label for="email">Email:</label><br>
+
+        <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br>
-        <label for="username">Username:</label><br>
+
+        <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
-        <label for="password">Password:</label><br>
+
+        <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br>
-        <label for="street">Street:</label><br>
-        <input type="text" id="street" name="street" required><br>
-        <label for="zipCode">Zip Code:</label><br>
-        <input type="text" id="zipCode" name="zipCode" required><br>
-        <label for="state">State:</label><br>
-        <input type="text" id="state" name="state" required><br><br>
+
+        <label for="street">Street:</label>
+        <input type="text" id="street" name="street"><br>
+
+        <label for="zipCode">Zip Code:</label>
+        <input type="text" id="zipCode" name="zipCode"><br>
+
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state"><br>
+
         <button type="submit">Register</button>
     </form>
 
-    <div id="registerMessage"></div>
-
     <hr>
 
-    <h2>User Login</h2>
-    <form id="loginForm">
-        <label for="loginUsername">Username:</label><br>
+    <!-- Login Form -->
+    <h2>Login</h2>
+    <form action="user_api.php?login" method="post">
+        <label for="loginUsername">Username:</label>
         <input type="text" id="loginUsername" name="loginUsername" required><br>
-        <label for="loginPassword">Password:</label><br>
-        <input type="password" id="loginPassword" name="loginPassword" required><br><br>
+
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="loginPassword" required><br>
+
         <button type="submit">Login</button>
     </form>
 
-    <div id="loginMessage"></div>
+    <hr>
 
-    <script>
-        document.getElementById("registerForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-            var formData = new FormData(this);
-            fetch("user_api.php?register", { // Update this URL with your PHP file name and endpoint
-                method: "POST",
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById("registerMessage").innerText = JSON.stringify(data);
-                })
-                .catch(error => console.error("Error:", error));
-        });
+    <!-- Product Listing Form -->
+    <h2>List Product</h2>
+    <form action="user_api.php" method="post">
+        <input type="hidden" name="name" value="Test Product">
+        <input type="hidden" name="description" value="Test Product Description">
+        <input type="hidden" name="price" value="19.99">
+        <input type="hidden" name="image" value="test_image.jpg">
+        <input type="hidden" name="quantity" value="10">
+        <button type="submit" name="listProduct">List Product</button>
+    </form>
 
-        document.getElementById("loginForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-            var formData = new FormData(this);
-            fetch("user_api.php?login", { // Update this URL with your PHP file name and endpoint
-                method: "POST",
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById("loginMessage").innerText = JSON.stringify(data);
-                })
-                .catch(error => console.error("Error:", error));
-        });
-    </script>
+    <hr>
 
+    <!-- Fetch User's Product Listings -->
+    <h2>Fetch User's Products</h2>
+    <form action="user_api.php" method="get">
+        <button type="submit" name="fetchUserProducts">Fetch User's Products</button>
+    </form>
+
+    <hr>
+
+    <!-- Fetch All Products -->
+    <h2>Fetch All Products</h2>
+    <form action="user_api.php" method="get">
+        <button type="submit" name="fetchAllProducts">Fetch All Products</button>
+    </form>
 </body>
 
 </html>
