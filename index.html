@@ -4,83 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Test Page</title>
+    <title>User API Test Page</title>
 </head>
 
 <body>
-    <h1>API Test Page</h1>
+    <h1>User API Test Page</h1>
 
-    <!-- Registration Form -->
-    <h2>Register User</h2>
-    <form action="user_api.php?register" method="post">
+    <h2>User Registration</h2>
+    <form action="api/user_api.php" method="post">
         <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required><br>
-
+        <input type="text" name="firstName" required><br>
         <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required><br>
-
+        <input type="text" name="lastName" required><br>
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
-
+        <input type="email" name="email" required><br>
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
-
+        <input type="text" name="username" required><br>
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-
+        <input type="password" name="password" required><br>
         <label for="street">Street:</label>
-        <input type="text" id="street" name="street"><br>
-
+        <input type="text" name="street" required><br>
         <label for="zipCode">Zip Code:</label>
-        <input type="text" id="zipCode" name="zipCode"><br>
-
+        <input type="text" name="zipCode" required><br>
         <label for="state">State:</label>
-        <input type="text" id="state" name="state"><br>
-
+        <input type="text" name="state" required><br>
         <button type="submit">Register</button>
     </form>
 
-    <hr>
-
-    <!-- Login Form -->
-    <h2>Login</h2>
-    <form action="user_api.php?login" method="post">
+    <h2>User Login</h2>
+    <form action="api/login_user.php" method="post">
         <label for="loginUsername">Username:</label>
-        <input type="text" id="loginUsername" name="loginUsername" required><br>
-
+        <input type="text" name="loginUsername" required><br>
         <label for="loginPassword">Password:</label>
-        <input type="password" id="loginPassword" name="loginPassword" required><br>
-
+        <input type="password" name="loginPassword" required><br>
         <button type="submit">Login</button>
     </form>
 
-    <hr>
-
-    <!-- Product Listing Form -->
-    <h2>List Product</h2>
-    <form action="user_api.php" method="post">
-        <input type="hidden" name="name" value="Test Product">
-        <input type="hidden" name="description" value="Test Product Description">
-        <input type="hidden" name="price" value="19.99">
-        <input type="hidden" name="image" value="test_image.jpg">
-        <input type="hidden" name="quantity" value="10">
-        <button type="submit" name="listProduct">List Product</button>
+    <h2>List Products</h2>
+    <form action="api/fetch_products.php" method="get">
+        <button type="submit">List Products</button>
     </form>
 
-    <hr>
-
-    <!-- Fetch User's Product Listings -->
-    <h2>Fetch User's Products</h2>
-    <form action="user_api.php" method="get">
-        <button type="submit" name="fetchUserProducts">Fetch User's Products</button>
-    </form>
-
-    <hr>
-
-    <!-- Fetch All Products -->
-    <h2>Fetch All Products</h2>
-    <form action="user_api.php" method="get">
-        <button type="submit" name="fetchAllProducts">Fetch All Products</button>
+    <h2>List Cart Items</h2>
+    <form action="api/fetch_cart_items.php" method="get">
+        <button type="submit">List Cart Items</button>
     </form>
 </body>
 
