@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User API Test Page</title>
+</head>
+
+<body>
+    <h1>User API Test Page</h1>
+
+    <h2>User Registration</h2>
+    <form action="api/register_user.php" method="post">
+        <label for="firstName">First Name:</label>
+        <input type="text" name="firstName" required><br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" name="lastName" required><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br>
+        <label for="username">Username:</label>
+        <input type="text" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
+        <label for="street">Street:</label>
+        <input type="text" name="street" required><br>
+        <label for="zipCode">Zip Code:</label>
+        <input type="text" name="zipCode" required><br>
+        <label for="state">State:</label>
+        <input type="text" name="state" required><br>
+        <button type="submit">Register</button>
+    </form>
+
+    <h2>Current User</h2>
+    <div id="currentUser"></div>
+
+    <script>
+        // Fetch current user information
+        fetch('api/get_session.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const user = data.user;
+                    const currentUserDiv = document.getElementById('currentUser');
+                    currentUserDiv.innerHTML = `
+                        <strong>User ID:</strong> ${user.id}<br>
+                        <strong>Username:</strong> ${user.username}<br>
+                        <strong>Email:</strong> ${user.email}<br>
+                        <!-- Add more user details as needed -->
+                    `;
+                } else {
+                    document.getElementById('currentUser').innerText = 'No user logged in';
+                }
+            })
+            .catch(error => console.error('Error fetching user session:', error));
+    </script>
+
+
+    <h2>User Login</h2>
+    <form action="api/login_user.php" method="post">
+        <label for="loginUsername">Username:</label>
+        <input type="text" name="loginUsername" required><br>
+        <label for="loginPassword">Password:</label>
+        <input type="password" name="loginPassword" required><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <h2>List Products</h2>
+    <button id="listProductsBtn">List Products</button>
+    <div id="productList"></div>
+
+    <script>
+        // Add event listener to the List Products button
+        document.getElementById('listProductsBtn').addEventListener('click', function () {
+            // Perform AJAX request to fetch products
+            fetch('api/fetch_userProducts.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        displayProducts(data.products);
+                    } else {
+                        alert('Failed to fetch products: ' + data.message);
+                    }
+                })
+                .catch(error => console.error('Error fetching products:', error));
+        });
+
+        // Function to display products on the page
+        // Function to display products on the page
+        function displayProducts(products) {
+            const productListDiv = document.getElementById('productList');
+            productListDiv.innerHTML = ''; // Clear previous content
+
+            if (!products || products.length === 0) {
+                productListDiv.textContent = 'No products available';
+            } else {
+                const ul = document.createElement('ul');
+                products.forEach(product => {
+                    const li = document.createElement('li');
+                    li.textContent = `ID: ${product.id}, Name: ${product.name}, Price: ${product.price}`;
+                    ul.appendChild(li);
+                });
+                productListDiv.appendChild(ul);
+            }
+        }
+
+    </script>
+
+    <h2>List Cart Items</h2>
+    <form action="api/fetch_cart_items.php" method="get">
+        <button type="submit">List Cart Items</button>
+    </form>
+</body>
+
+</html>
