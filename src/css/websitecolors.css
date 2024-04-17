@@ -1,0 +1,276 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    background-color: #C8A2C8;
+    flex-direction: column;
+    height: 100vh;
+    min-width: 300px;
+}
+
+
+  .forminfo input{
+    margin: 0;
+    border-radius: 50px;
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    padding: 16px;
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  .loginsection h2{
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .loginsection{
+    align-self: center;
+    margin-bottom: 30px;
+    max-width: 30%;
+    margin: 0 auto;
+  }
+
+  .header{
+    margin: 26px;
+  }
+
+  .forminfo{
+    position: relative;
+    font-size: .875rem;
+    margin-bottom: 20px;
+  }
+
+  label.floating_label--animate{
+    transition: transform .3s 
+    cubic-bezier(0.25,0.1,0.25,1),bottom .3s 
+    cubic-bezier(0.25,0.1,0.25,1);
+
+  }
+
+  label.floating_label--inline{
+    font-size: .875rem;
+    transform: translate(0,12px);
+    margin-bottom: 30px;
+
+  }
+
+  label.floating-label {
+    color: var(--floating-label-color,var(--color-foreground-primary));
+    background-color: transparent;
+    display: inline-block;
+    left: 16px;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    text-overflow: ellipsis;
+    top: 0;
+    transform: scale(0.75,0.75) translate(0,2px);
+    transform-origin: left;
+    white-space: nowrap;
+    width: calc(100% - 40px);
+    z-index: 1;
+  }
+
+  .floating-label{
+    position: relative;
+  }
+
+  div.floating-label{
+    display: block;
+  }
+
+  .loginsection button{
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    height: 48px;
+    min-height: 48px;
+    padding: 13px 20px;
+    border-radius: 50px;
+
+  }
+
+  .loginsection form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.product-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--product-bg-color, white);
+  padding: 20px;
+  border: 1px solid var(--product-border-color, black);
+  max-width: 40%; 
+  margin: 0 auto; 
+}
+
+
+.product-image {
+  margin-right: 10px;
+  height: auto;
+  width: 50%;
+  max-width: 50%;
+  max-height: 50%;
+  display: flex;
+}
+
+.product-image img {
+  max-width: 50%;
+  max-height: 50%;
+  width: auto;
+  height: auto;
+ 
+}
+
+.product-description {
+  flex: 1;
+ 
+}
+
+.product-description h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.product-description p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.product-description strong {
+  color: var(--product-price-color, black);
+}
+
+.product-description button {
+  background-color: var(--product-button-bg, black);
+  color: var(--product-button-text, white);
+  font-weight: bold;
+  font-size: 1rem;
+  height: 48px;
+  min-height: 48px;
+  padding: 13px 20px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.navbar a:link{
+  text-decoration: none;
+}
+
+.account-link {
+  text-align: right;
+  display: flex;
+  align-items: center;
+}
+
+.account-link a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar img{
+  max-width: 30%;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.navbar h1{
+  color: white;
+}
+
+
+
+.account-dropdown {
+  position: relative;
+}
+
+.account-button {
+  background-color:#C8A2C8;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+.account-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
+}
+
+.account-dropdown-content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  color: #333;
+}
+
+.account-dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.account-dropdown:hover .account-dropdown-content {
+  display: block;
+}
+
+
+.cartaddbutton:hover{
+  background-color: #0056b3;
+}
+
+.cart-container {
+  display: flex;
+}
+
+.notification-container {
+  position: fixed;
+  top: 110px; /* Adjust the top position as needed to place it under the navbar */
+  right: 30px;
+  z-index: 1000; /* Adjust the z-index to ensure it appears above other elements */
+}
+
+.notification {
+  background-color: #0056b3; /* Green background color, you can customize this */
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.notification button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  outline: none;
+}
+
+
+
+
+

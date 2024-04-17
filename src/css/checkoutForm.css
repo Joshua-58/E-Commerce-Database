@@ -1,0 +1,119 @@
+/* checkoutForm.css */
+
+/* Use the existing classes from websitecolor.css for consistency */
+.checkout-form {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    height: 100vh;
+    min-width: 300px;
+  }
+  
+  /* Use the same styles for input fields as in the login section */
+  .forminfo input {
+    margin: 0;
+    border-radius: 50px;
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    padding: 16px;
+    border-style: solid;
+    border-width: 1px;
+  }
+  
+  /* Add more specific styling for the checkout form */
+  .form-container {
+    align-self: center;
+    margin-bottom: 30px;
+    max-width: 30%;
+    margin: 0 auto;
+  }
+  
+  .form-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .input-field {
+    position: relative;
+    font-size: .875rem;
+    margin-bottom: 20px;
+  }
+  
+  /* You can also define styles for the buttons within the form */
+  .checkout-form button {
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    height: 48px;
+    min-height: 48px;
+    padding: 13px 20px;
+    border-radius: 50px;
+  }
+  
+  .form-section {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .CardElement {
+    margin: 0;
+    border-radius: 50px;
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    padding: 16px;
+    border-style: solid;
+    border-width: 1px;
+    background-color: white;
+  }
+
+  button[type="submit"] {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    height: 48px;
+    min-height: 48px;
+    padding: 13px 20px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px; /* Add some top margin for spacing */
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+
+  #checkbox{
+    height: 50%;
+    width: 30px;
+  }
+
+  .checkoutbutton{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    height: 48px;
+    min-height: 48px;
+    padding: 13px 20px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .checkoutbutton:hover{
+    background-color: #0056b3;
+  }
+
+
+  
